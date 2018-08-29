@@ -1,0 +1,74 @@
+<h2 id="titleAddProduct"><i class="fas fa-plus-circle"></i> Ajout d'un produit alimentaire au catalogue</h2>
+
+<form id="formAddProduct" method="POST" name="formAddProduct" action="<?= $requestUrl ?>/admin/meal" enctype="multipart/form-data">
+		<!-- balise enctype : valeur pour pouvoir récup pleins de types de fichiers (No characters are encoded. This value is required when you are using forms that have a file upload control) -->
+
+	<fieldset id="addProductCaract">
+
+	    <legend><i class="fas fa-chart-pie"></i> Caractéristiques</legend>
+
+            <table> <!-- plus simple de faire tableau pour aligner les éléments -->
+
+				<tr>
+                    <td><label for="nameNewProduct">Nom :</label></td>
+                    <td><input class="bigTextArea" id="nameNewProduct" type="text" name="nameNewProduct" data-name="nameNewProduct"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="descriptionNewProduct">Description :</label></td>
+                    <td><textarea class="bigTextArea" id="descriptionNewProduct" name="descriptionNewProduct" rows="3"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td><label for="photoNewProduct">Photo </label></td>
+                    <td><input class="bigTextArea" id="photoNewProduct" name="photoNewProduct" type="file"></td>
+                </tr>
+
+                <tr>
+                	<td></td>
+                	<td><i class="fas fa-exclamation-triangle"></i> Merci de renommer le fichier de la photo avec le nom de l'aliment <strong>avant</strong> de l'envoyer</td>
+                </tr>  
+
+            </table>   
+
+	</fieldset>
+
+	<fieldset id="addProductSupply">
+
+	    <legend><i class="fas fa-parachute-box"></i> Approvisionnement</legend>
+
+            <table> <!-- plus simple de faire tableau pour aligner les éléments -->
+
+				<tr>
+                    <td><label for="initialStockNewProduct">Stock initial :</label></td>
+                    <td>
+                    	<input class="smallTextArea" id="initialStockNewProduct" type="text" maxlength="3" name="initialStockNewProduct" data-name="initialStockNewProduct">
+                    	<label for="initialStockNewProduct">pcs</label>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="buyPriceNewProduct">Prix d'achat :</label></td>
+                    <td>
+                    	<input class="smallTextArea" id="buyPriceNewProduct" type="text" maxlength="5" name="buyPriceNewProduct" data-name="buyPriceNewProduct">
+                		<label for="buyPriceNewProduct">€</label>
+                	</td>
+                </tr>
+
+                <tr>
+                  <td><label for="salePriceNewProduct">Prix de vente :</label></td>
+                    <td>
+                    	<input class="smallTextArea" id="salePriceNewProduct" type="text" maxlength="5" name="salePriceNewProduct" data-name="salePriceNewProduct">
+                		<label for="salePriceNewProduct">€</label>
+                	</td>
+                </tr>
+
+            </table>   
+
+	</fieldset>
+
+	<button id="buttonAddProduct" type="submit" name="buttonOrderAddProduct">Ajouter</button>
+
+    <button id="buttonReset" type="reset" name="buttonReset">Annuler</button>
+
+</form>

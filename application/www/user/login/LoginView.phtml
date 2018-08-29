@@ -1,0 +1,35 @@
+<!-- Message de notification -->
+
+<!-- Code HTML à écrire -->
+
+<!-- Page de login -->
+
+<h2 id="titleLogin"><i class="fas fa-lock"></i> Se connecter avec un compte utilisateur</h2>
+
+<!-- action pour récup URL où va renvoyer infos rentrées par user dans le formulaire -->
+<form id="formLogin" method="POST" name="LoginForm" action="<?= $requestUrl ?>/user/login">
+
+        <fieldset class="fieldsetLoginForm">
+
+            <legend class="bold"><i class="fas fa-user-secret"></i> Informations d'authentification</legend>
+
+            <table>
+                <tr>
+                    <td><label for="emailLogin">E-mail :</label></td>
+                    <td><input required type="email" name="emailLogin" id="emailLogin" placeholder="@"/></td>
+                </tr>
+
+                <tr>
+                    <td><label for="passwordLogin">Mot de passe :</label></td>
+                    <td><input required type="password" name="passwordLogin" id="passwordLogin"/></td>
+                </tr>
+
+            </table>
+
+        </fieldset>
+
+
+    <button id="buttonConnect" type="submit" name="buttonCreate">Connexion</button>
+    <button id="buttonReset" type="reset" name="buttonReset">Annuler</button>
+
+</form>

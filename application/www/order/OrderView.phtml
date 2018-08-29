@@ -1,0 +1,73 @@
+<!-- Message de notification -->
+
+<!-- Code HTML à écrire -->
+
+<!-- Formulaire de commande de plats -->
+
+<h2 id="titleOrder"><i class="fas fa-shopping-cart"></i> Passer une commande</h2>
+
+<form id="formOrder" method="POST" name="formOrder" action="<?= $requestUrl ?>/order/payment">
+
+	<fieldset class="fieldsetOrderForm">
+
+		<legend class="bold">Ajouter un article</legend>
+            <table id="tableOrder"> <!-- plus simple de faire tableau pour aligner les éléments -->
+                <tr>
+                    <td><label for="productOrder">Nom :</label></td>
+
+                    <td><select id="productOrder" name="productOrder">
+                        
+                        <option disabled selected>Produit</option>
+                            
+                            <?php foreach($meals as $meal): ?>
+                        <option value="<?= $meal['Id'] ?>" id="<?= $meal['Id'] ?>"><?= $meal['Name'] ?></option>
+                            <?php endforeach ?>
+
+                    </select></td>
+
+                </tr>
+
+                <tr>
+                    <td><label for="descriptionOrderArticle"></label></td>
+
+                    <td id="descriptionOrderArticle">
+
+                    	<span id="messOrder">Les Délices Made in USA</span>
+
+                    	<!-- Détails du produit choisi codé en JS dans le fichier order -->
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><label for="productQuantityOrder">Quantité :</label></td>
+
+                    <td><input type="text" name="productQuantityOrder" id="productQuantityOrder" maxlength="2"><p id="mess2Order" class="hidden">Veuillez rentrer une quantité !</p></td>
+                </tr>
+
+                <tr>
+                    <td><label for="buttonAddProductOrder"></label></td>
+
+                    <td><button id="buttonAddProductOrder" type="submit" name="buttonAddProductOrder">Ajouter</button></td>
+                </tr>
+
+            </table>
+    </fieldset>
+
+    </div>
+
+    <fieldset class="fieldsetOrderForm">
+    	
+    	<legend class="bold">Récapitulatif de la commande</legend>
+            <table id="tableRecapOrder"> <!-- plus simple de faire tableau pour aligner les éléments -->
+
+            <!-- Récap de la commande codé en JS dans le fichier order -->
+
+            </table>
+
+    </fieldset>
+
+    <button id="buttonOrder" type="submit" name="buttonOrder">Valider la commande</button>
+    <button id="buttonReset" type="reset" name="buttonReset">Annuler</button>
+
+</form>

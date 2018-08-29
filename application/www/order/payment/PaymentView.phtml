@@ -1,0 +1,68 @@
+<h2 id="titlePayment"><i class="fa fa-check"></i> Payer la commande</h2>
+
+
+<section id="customerDetails">
+    <p class="bold"><?= $_SESSION['user']['FirstName'] ?> <?= $_SESSION['user']['LastName'] ?></p>
+    <p><?= $_SESSION['user']['Address'] ?></p>
+    <p><?= $_SESSION['user']['ZipCode'] ?> <span class="city"><?= $_SESSION['user']['City'] ?></span></p>
+</section>
+
+
+<table id="orderFinalRecap">
+
+<!-- impossible d'afficher numéro de commande - erreur framework (voir OrderModel.class.php & PaymentController.class.php) -->
+    <caption class="bold">Récapitulatif de la commande n° ???</caption>
+
+    <thead>
+        <tr>
+            <th class="bold">Nom</th>
+            <th class="number bold">Quantité</th>
+            <th class="number bold">Prix Unitaire</th>
+            <th class="number bold">Prix Total</th>
+        </tr>
+    </thead>
+
+    <tfoot>
+        <tr>
+            <td colspan="3" class="bold">Total HT</td>
+            <td id="priceHT" class="bold"></td>
+        </tr>
+
+        <tr>
+            <td colspan="3" class="bold">TVA (20 %)</td>
+            <td id="partTVA" class="bold"></td>
+        </tr>
+
+        <tr id="TTC">
+            <td class="bold" colspan="3">Total TTC</td>
+            <td id="priceTTC" class="bold"></td>
+        </tr>
+
+        <tr>
+            <td colspan="4" style="text-align: center;"><small id="dateOrderRecap"></small></td>
+        </tr>
+    </tfoot>
+
+    <tbody id="paymentRecap">
+
+        <!-- intérieur codé en js : voir order.js -->
+
+    </tbody>
+
+</table>
+
+<hr>
+
+
+<h3>Merci de bien vouloir procéder au paiement de la commande.</h3>
+
+<form id="paymentRecap" action="<?= $requestUrl ?>/order/validate" method="POST">
+
+<!-- input hidden pour récup toutes les infos de la commande, à qui on donnera valeur en JS (voir ft loadOrder de order.js -->
+    <input type="hidden" name="items" id="items" value="">
+
+    <button id="buttonPayRecap" type="submit" name="buttonOrder">Enregistrer la commande</button>
+
+    <a href="<?= $requestUrl ?>"><button id="buttonCancelOrder" name="buttonCancelOrder">Annuler</button></a>
+
+</form>

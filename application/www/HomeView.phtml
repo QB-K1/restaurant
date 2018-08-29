@@ -1,0 +1,30 @@
+<!-- Message de notification -->
+
+<!-- Code HTML à écrire -->
+
+<!-- Liste des aliments -->
+<table class="generic-table meal-list">
+    <caption>Carte du restaurant</caption>
+
+    <tbody>
+    	<!-- boucle pour associer les éléments de la variable meals contenant le contenu de la BDD Meals (voir HomeController.class.php) à des clés meal -->
+	    <?php foreach($meals as $meal): ?>
+
+	    	<tr>
+	    	<!-- récupère image (dans la BDD colonne image ne contient que le nom de l'image, donc doit quand même lui passe le chemin) ($wwwUrl" ramène à l'index de base du projet) et met le nom du produit en alt -->
+				<td><img src="<?= $wwwUrl ?>/images/meals/<?= $meal['Photo'] ?>" alt="<?= $meal['Name'] ?>" /></td>
+				<!-- récupère nom et description du produit -->
+				<td>
+					<p class="bold"><?= $meal['Name'] ?></p>
+					<p><?= $meal['Description'] ?></p>
+				</td>
+				<!-- récupère prix de vente -->
+				<td class="bold"><?= $meal['SalePrice'] ?> €</td>
+			</tr>
+
+		<?php endforeach ?>
+
+    </tbody>
+
+</table>
+

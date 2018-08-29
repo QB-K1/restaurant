@@ -1,0 +1,112 @@
+<!-- Message de notification -->
+
+<!-- Code HTML à écrire -->
+
+<!-- Formulaire de creation de compte -->
+
+<h2 id="titleUser"><i class="fas fa-user-plus"></i> Création d'un compte client</h2>
+
+<!-- action pour récup URL où va renvoyer infos rentrées par user dans le formulaire -->
+<form id="formUser" method="POST" name="UserForm" action="<?= $requestUrl ?>/user">
+
+    <fieldset class="fieldsetUserForm">
+
+        <legend class="bold"><i class="fas fa-user-tie"></i> Identités et coordonnées</legend>
+            <table> <!-- plus simple de faire tableau pour aligner les éléments -->
+                <tr>
+                    <td><label for="lastName">Nom :</label></td>
+                    <td><input required type="text" name="lastName" id="lastName"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="firstName">Prénom :</label></td>
+                    <td><input required type="text" name="firstName" id="firstName"></td>
+                </tr>
+
+                </tr>
+                    <td><label for="day">Date de naissance : </label></td>
+
+                    <td><select required id="day" name="day">
+                        <option disabled selected>Jour</option>
+                            <?php for($day = 1; $day <= 31; $day++): ?>
+                        <option value="<?= $day ?>"><?= $day ?></option>
+                            <?php endfor ?>
+                    </select>
+
+                    <span>/</span>
+
+                    <select required name="month">
+                        <option disabled selected>Mois</option>
+                        <option value="1">Janvier</option>
+                        <option value="2">Février</option>
+                        <option value="3">Mars</option>
+                        <option value="4">Avril</option>
+                        <option value="5">Mai</option>
+                        <option value="6">Juin</option>
+                        <option value="7">Juillet</option>
+                        <option value="8">Août</option>
+                        <option value="9">Septembre</option>
+                        <option value="10">Octobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Décembre</option>
+                    </select>
+
+                    <span>/</span>
+
+                    <select required name="year">
+                        <option disabled selected>Année</option>
+                        <!-- part de 100 ans en arrière et s'arrête 18 ans avant ajd car doit être majeur -->
+                        <?php for($year = date('Y')-100; $year < date('Y')-18; $year++): ?>
+                            <option value="<?= $year ?>"><?= $year ?></option>
+                        <?php endfor ?>
+                    </select></td>
+
+                <tr>
+                    <td><label for="address">Adresse :</label></td>
+                    <td><textarea required rows="3" name="address" id="address"></textarea></td>
+                </tr>
+
+                <tr>
+                    <td><label for="city">Ville :</label></td>
+                    <td><input required type="text" name="city" id="city"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="zipCode">Code Postal :</label></td>
+                    <td><input required type="text" name="zipCode" id="zipCode" maxlength="5"></td>
+                </tr>
+
+                <tr>
+                    <td><label for="phone">Téléphone :</label></td>
+                    <td><input required type="text" name="phone" id="phone" maxlength="10"></td>
+                </tr>
+
+            </table>
+
+        </fieldset>
+
+
+        <fieldset class="fieldsetUserForm">
+
+            <legend class="bold"><i class="fas fa-user-secret"></i> Informations d'authentification</legend>
+
+            <table>
+                <tr>
+                    <td><label for="email">E-mail :</label></td>
+                    <td><input required type="email" name="email" id="email" placeholder="@"/></td>
+                </tr>
+
+                <tr>
+                    <td><label for="password">Mot de passe :</label></td>
+                    <td><input required type="password" name="password" id="password"/></td>
+                </tr>
+
+            </table>
+
+        </fieldset>
+
+
+    <button id="buttonCreateAccount" type="submit" name="buttonCreate">Créer le compte</button>
+    <button id="buttonReset" type="reset" name="buttonReset">Annuler</button>
+
+</form>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/normalize-3.0.3.min.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/font-awesome-4.3.0.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+    <!-- Feuilles de styles de l'application -->
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/restaurant.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-button.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-form.css">
+    <link rel="stylesheet" href="<?= $wwwUrl ?>/css/ui-table.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+
+    <!-- Librairie jQuery -->
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+    <!-- JavaScript de l'application -->
+    <script src="<?= $wwwUrl ?>/js/utilities.js"></script>
+</head>
+<body>
+
+<!-- En-tête commune -->
+<header>
+    <h1>
+        <a href="<?= $requestUrl ?>">
+            Restaurant - <span id="span-biggerUSA">Made In America !</span>
+        </a>
+    </h1>
+
+</header>
+
+<!-- Interface utilisateur -->
+<nav class="user-interface">
+    <ul class="link-list">
+
+        <li id="topLeft">
+            <!-- PHP pour afficher boutons en fonction de si user connecté (variable superglobale $_SESSION a un index user rempli) ou non -->
+            <?php if(!empty($_SESSION['user'])) { ?>
+
+            <a href="<?= $requestUrl ?>/reservation"><button id="buttonReservation" name="buttonReservation">Réserver</button></a>
+
+            <a href="<?= $requestUrl ?>/order"><button id="buttonOrder" name="buttonOrder">Commander</button></a>
+
+            <?php } else { ?>
+
+            <a href="<?= $requestUrl ?>/user"><button id="buttonCreateUser" name="buttonCreateUser">Créer un compte</button></a>
+
+            <?php } ?>
+
+            </li>
+            <li id="topRight">
+            <!-- PHP pour afficher l'un ou l'autre des boutons en fonction de si user connecté (variable superglobale $_SESSION a un index user rempli) ou non -->
+            <?php if(!empty($_SESSION['user'])) { ?>
+
+            <span id="bonjour">Bonjour &nbsp;<span class="bold"><?= $_SESSION['user']['FirstName'] ?></span> &nbsp;!</span>
+
+                <a href="<?= $requestUrl ?>/user/logout"><button class="buttonSignIn" id="buttonSignOut" name="buttonSignOut">Déconnexion</button></a>
+
+                <a href="<?= $requestUrl ?>/admin/meal"><button class="buttonSignIn" name="buttonSignIn">Admin Meal</button></a>
+
+            <?php } else { ?>
+
+                <a href="<?= $requestUrl ?>/user/login"><button class="buttonSignIn" name="buttonSignIn">Connexion</button></a>
+
+            <?php } ?>
+
+
+        </li>
+
+    </ul>
+</nav>
+
+<main>
+    <!-- Affichage du template lié à la vue -->
+
+    <?php include $this->viewData['template']; ?>
+</main>
+
+<!-- Pied de page commun -->
+<footer>
+    <ul>
+        <li><img src="<?= $wwwUrl ?>/images/payment/visa.png" alt="Visa"></li>
+        <li><img src="<?= $wwwUrl ?>/images/payment/mastercard.png" alt="MasterCard"></li>
+        <li><img src="<?= $wwwUrl ?>/images/payment/paypal.png" alt="PayPal"></li>
+    </ul>
+</footer>
+
+<!-- Code principal JavaScript de l'application -->
+<script src="<?= $wwwUrl ?>/js/order.js"></script>
+<script src="<?= $wwwUrl ?>/js/main.js"></script>
+
+</body>
+</html>

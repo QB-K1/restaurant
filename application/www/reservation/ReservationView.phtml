@@ -1,0 +1,90 @@
+<!-- Message de notification -->
+
+<!-- Code HTML à écrire -->
+
+<!-- Formulaire de réservation de table -->
+
+<h2 id="titleReservation"><i class="fas fa-utensils"></i> Réservation d'une table</h2>
+
+<!-- action pour récup URL où va renvoyer infos rentrées par user dans le formulaire -->
+<form id="formReservation" method="POST" name="formReservation" action="<?= $requestUrl ?>/reservation">
+
+    <fieldset class="fieldsetReservationForm">
+
+        <legend class="bold"><i class="far fa-calendar-alt"></i> Informations</legend>
+            <table> <!-- plus simple de faire tableau pour aligner les éléments -->
+                </tr>
+                    <td><label for="dayReservation">Date de réservation :</label></td>
+
+                    <td><select required id="dayReservation" name="dayReservation">
+                        <option disabled selected>Jour</option>
+                            <?php for($dayReservation = 1; $dayReservation <= 31; $dayReservation++): ?>
+                        <option value="<?= $dayReservation ?>"><?= $dayReservation ?></option>
+                            <?php endfor ?>
+                    </select>
+
+                    <span>/</span>
+
+                    <select required name="monthReservation">
+                        <option disabled selected>Mois</option>
+                        <option value="1">Janvier</option>
+                        <option value="2">Février</option>
+                        <option value="3">Mars</option>
+                        <option value="4">Avril</option>
+                        <option value="5">Mai</option>
+                        <option value="6">Juin</option>
+                        <option value="7">Juillet</option>
+                        <option value="8">Août</option>
+                        <option value="9">Septembre</option>
+                        <option value="10">Octobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Décembre</option>
+                    </select>
+
+                    <span>/</span>
+
+                    <select required name="yearReservation">
+                        <option disabled selected>Année</option>
+                            <?php for($yearReservation = date('Y'); $yearReservation <= date('Y')+2; $yearReservation++): ?>
+                        <option value="<?= $yearReservation ?>"><?= $yearReservation ?></option>
+                            <?php endfor ?>
+                    </select>
+
+                    <span>&nbsp;à&nbsp;</span>
+
+                    <select required name="hourReservation">
+                        <option disabled selected>Heure</option>
+                            <?php for($hourReservation = 10; $hourReservation <= 22; $hourReservation++): ?>
+                        <option value="<?= $hourReservation ?>"><?= $hourReservation ?></option>
+                            <?php endfor ?>
+                    </select>
+
+                    <span>:</span>
+
+                    <select required name="quarterReservation">
+                        <option disabled selected>Minutes</option>
+                        <option value="00">00</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                        <option value="45">45</option>
+                    </select>
+
+                <tr>
+                    <td><label for="numberOfSeats">Nombre de couverts :</label></td>
+
+                    <td><select required id="numberOfSeats" name="numberOfSeats">
+                        <option disabled selected>Personnes</option>
+                            <?php for($numberOfSeats = 1; $numberOfSeats <= 10; $numberOfSeats++): ?>
+                        <option value="<?= $numberOfSeats ?>"><?= $numberOfSeats ?></option>
+                            <?php endfor ?>
+                    </select></td>
+                </tr>
+
+            </table>
+
+        </fieldset>
+
+    <button id="buttonReserve" type="submit" name="buttonReserve">Réserver</button>
+    <button id="buttonReset" type="reset" name="buttonReset">Annuler</button>
+
+</form>

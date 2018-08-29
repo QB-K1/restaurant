@@ -1,0 +1,88 @@
+
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------- MAIN COMMUN AUX PAGES -----------------------------------------*/
+/* ------------------------ Ce qui concerne le style commun des pages ------------------------- */
+/*-------------------------------------------------------------------------------------*/
+
+.meal-list td:nth-child(2), #tableRecapOrder th:nth-child(2), #orderFinalRecap th:nth-child(1),  {
+    text-align: left;
+}
+
+#titleUser, #titleLogin, #titleReservation, #titleOrder, #titlePayment, #titleValidate, #titleAddProduct {
+    color: #339966;
+    margin: 5% 0;
+}
+
+#formUser fieldset, #formLogin fieldset, #formReservation fieldset, #formOrder fieldset, #formAddProduct fieldset {
+    border-radius: 5px;
+    margin: 3% 0;
+}
+
+#formUser legend, #formLogin legend, #formReservation legend, #formOrder legend, #formAddProduct legend {
+    color: #339966;
+    font-size: 20px;
+    padding: 0 1%;
+    transition: 0.5s ease-in-out;
+}
+
+    #formUser fieldset:hover legend, #formLogin fieldset:hover legend, #formReservation fieldset:hover legend, #formOrder fieldset:hover legend, #formAddProduct fieldset:hover legend {
+        margin-left: 400px;
+        transition: 0.5s ease-in-out;
+    }
+
+#formUser td, #formLogin td, #formReservation td, #formOrder td, #formAddProduct td {
+    padding: 2% 0;
+}
+
+#formUser textarea, #formOrder textarea, #formAddProduct textarea {
+    resize: none;
+    vertical-align: top;
+}
+
+#formUser td:nth-child(1), #formLogin td:nth-child(1), #formReservation td:nth-child(1), #formAddProduct td:nth-child(1) {
+    width : 200px;
+    vertical-align: top;
+}
+
+#formUser #buttonCreateAccount, #formLogin #buttonConnect, #formReservation #buttonReserve, #formOrder #buttonOrder, #paymentRecap #buttonPayRecap, #formAddProduct #buttonAddProduct {
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #339966;
+    border: none;
+    border-radius: 5px;
+    padding: 1%;
+    margin-right: 1%;
+}
+
+#formUser #buttonReset, #formLogin #buttonReset, #formReservation #buttonReset, #formOrder #buttonReset, #paymentRecap #buttonCancelOrder, #formAddProduct #buttonReset {
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 0.65em;
+    background-color: #D72A39;
+    border: none;
+    border-radius: 5px;
+    padding: 1%;
+}
+
+#tableRecapOrder th, #orderFinalRecap th {
+    text-align: right;
+    padding: 10px;
+}
+
+#tableRecapOrder td, #orderFinalRecap td {
+    padding: 10px;
+}
+
+#tableRecapOrder td:nth-child(2), #orderFinalRecap tbody td:nth-child(1) {
+    text-align: left;
+    width: 450px;
+}
+
+    #tableRecapOrder td:nth-child(1), #tableRecapOrder td:nth-child(3), #tableRecapOrder td:nth-child(4), #orderFinalRecap tbody td:nth-child(2), #orderFinalRecap tbody td:nth-child(3), #orderFinalRecap tbody td:nth-child(4)  {
+        text-align: right;
+        width: 150px;
+    }
+
+#productQuantityOrder, .smallTextArea {
+    width: 50px;
+}
